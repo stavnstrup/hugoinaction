@@ -32,6 +32,9 @@
       </main>
     </section>
   {{end}}
+  {{if site.IsServer}}
+    {{- partial "debug/debug.html" (dict "context" .) -}}
+  {{end}}
   {{block "footer" .}}
   <footer>
     {{ partialCached "menu.html" (dict "Menu" site.Menus.footer  "RenderSubmenus" false) "footer" "false"}}
