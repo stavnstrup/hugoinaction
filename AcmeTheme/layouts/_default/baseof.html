@@ -20,6 +20,9 @@
   {{$params := dict "pages" (slice "/" "/offline" $css.RelPermalink $js.RelPermalink $logo.RelPermalink $background.RelPermalink)}}
   {{ $js := resources.Get "serviceWorker.js" | js.Build (dict "params" $params "minify" (not site.IsServer))}}
   <!-- {{- $js.RelPermalink -}} -->
+  {{$manifest := (dict "name" (default site.Home.Title site.Title) "display" "minimal-ui" "start_url" site.BaseURL "icons" (slice (dict "src" $logo.RelPermalink "type" "image/svg+xml" "sizes" "155x155")) )}}
+  {{ $manifestFile := $manifest | jsonify | resources.FromString "/manifest.webmanifest" }}
+  <link rel="manifest" href="{{$manifestFile.RelPermalink}}">
 {{ template "_internal/twitter_cards.html" . }}
 {{ template "_internal/opengraph.html" . }}
 </head>
