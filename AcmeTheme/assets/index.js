@@ -8,6 +8,10 @@ function init() {
   Search.init();
   document.addEventListener("turbolinks:load", router);
   router();
+  if ('serviceWorker' in navigator && window.location.pathname !== '/offline') {
+    navigator.serviceWorker.register('/serviceWorker.js',
+      { scope: '/' });
+  }
 }
 
 function router() {
