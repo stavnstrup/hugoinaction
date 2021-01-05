@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  {{ $background := resources.GetMatch "image/bg.svg" | resources.ExecuteAsTemplate "background.svg" . }}
+  {{ $background := resources.GetMatch "image/background.svg.tpl" | resources.ExecuteAsTemplate "background.svg" . }}
   background-image: url({{$background.Permalink}});
   background-size: cover;
 }

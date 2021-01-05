@@ -1,53 +1,7 @@
 <html>
   <head>
-    <link rel="stylesheet" href="https://vanillacss.com/vanilla.css" />
-    <style>
-      body {
-        margin: 0 auto;
-        max-width: 1000px;
-      }
-      header {
-        border-bottom: 1px solid #555;
-      }
-      header .title {
-        font-size: 48px;
-        text-align: center;
-      }
-      header .title a {
-        color: var(--text-color);
-        text-decoration: none;
-        text-align: center;
-      }
-      header a, footer a {
-        text-decoration: none;
-      }
-      header li {
-        list-style: none;
-        display: inline-block;
-        padding: 5px 20px;
-        font-size: smaller;
-      }
-      footer {
-        border-top: 1px solid #555;
-        padding: 20px;
-      }
-      footer li {
-        list-style: none;
-        display: inline-block;
-        padding: 5px 20px;
-        font-size: smaller;
-        margin: 0;
-      }
-      footer ul,
-      header ul {
-        text-align: center;
-        padding: 0;
-        margin: 0;
-      }
-      form * {
-        margin: 10px;
-      }
-    </style>
+    {{$css := resources.Get "simple.css" | resources.Minify }}
+    <link rel="stylesheet" href="{{$css.Permalink}}" />
   </head>
   <body>
     <header>
