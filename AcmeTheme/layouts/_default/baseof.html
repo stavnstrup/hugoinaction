@@ -52,6 +52,7 @@
     {{ partialCached "menu.html" (dict "Menu" site.Menus.footer  "RenderSubmenus" false) "footer" "false"}}
     <br>
     {{ with .OutputFormats.Get "RSS" }}<a href="{{ .RelPermalink }}" target="_blank">RSS</a>{{ end }}
+    {{ with .OutputFormats.Get "Plain" }}<a href="{{ .RelPermalink }}" target="_blank">Plain Text</a>{{ end }}
     {{ if .IsTranslated }}
 <ul>
     {{ range .Translations }}
