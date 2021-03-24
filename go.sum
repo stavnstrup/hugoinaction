@@ -8,6 +8,8 @@ github.com/hugoinaction/Resources v0.8.0 h1:NoIshrFdQcqvOi/63vI/is73As9d6OsRBQiu
 github.com/hugoinaction/Resources v0.8.0/go.mod h1:4QxFKDTfHDA4Ylif1aM/ea5IFtOXGWKuAcD0czC/0I8=
 github.com/hugoinaction/Resources v0.13.0 h1:VMeQ8LUaRmZNBFFmM3mf24H8Mf769mF2w6jqZQwxGhA=
 github.com/hugoinaction/Resources v0.13.0/go.mod h1:4QxFKDTfHDA4Ylif1aM/ea5IFtOXGWKuAcD0czC/0I8=
+github.com/hugoinaction/TermsAndPrivacy v0.0.0-20200223231951-1c7c1972007a h1:pJIHysSc7qVpIdVbVnRyqw27iApGv8ld7l5amtIKjdg=
+github.com/hugoinaction/TermsAndPrivacy v0.0.0-20200223231951-1c7c1972007a/go.mod h1:SKLyKoQovP9Eq2onrKoJg9nk2ncwqv5T6li5aMsD4/Q=
 github.com/hugoinaction/Universal v0.0.0-20200812045818-69737f840531 h1:d/4uLyeX+aFRgKHniEctVlNxPipQzuvRIzUrjjcmrUI=
 github.com/hugoinaction/Universal v0.0.0-20200812045818-69737f840531/go.mod h1:tn5626W3c7g5nJ84Hsoe7/Oj1vT5D7xe9yyNhMe72X8=
 github.com/hugoinaction/hugo-debug-utils v0.0.0-20200427035302-d4636e5c27cf h1:6rMTTNHfMot+cuzlkQsw9Na6xIrKmjCf2TneR95m75g=
