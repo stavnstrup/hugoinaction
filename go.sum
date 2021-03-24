@@ -1,10 +1,6 @@
-github.com/hugoinaction/Acme v0.8.0 h1:oXJfWXrQ5t8pxDzwG+I9Y+GNFlThlpn1EI3Kg06p7UQ=
-github.com/hugoinaction/Acme v0.8.0/go.mod h1:dCnCV5Z5JlT9rpCsMZIUnF8AOIJjfsXPYtjvHWu19Ws=
 github.com/hugoinaction/Eclectic v0.0.0-20200815052755-c1178953bfbb h1:dwtlAJkaVAa2UquBHYCdDUtlhJYCMk7CGnU6JsAw2O8=
 github.com/hugoinaction/Eclectic v0.0.0-20200815052755-c1178953bfbb/go.mod h1:z4ORsG6K5BF+U3ssVkl+7kzy770SWHxNXfWYzdQrqGc=
-github.com/hugoinaction/Resources v0.8.0 h1:NoIshrFdQcqvOi/63vI/is73As9d6OsRBQiuOztNsl8=
-github.com/hugoinaction/Resources v0.8.0/go.mod h1:4QxFKDTfHDA4Ylif1aM/ea5IFtOXGWKuAcD0czC/0I8=
-github.com/hugoinaction/Resources v0.13.0 h1:VMeQ8LUaRmZNBFFmM3mf24H8Mf769mF2w6jqZQwxGhA=
+github.com/hugoinaction/Resources v0.13.0 h1:qP0PrfxuJScgdRGNkMzyjwWN4kIxK4HS1FvEtHWN/bY=
 github.com/hugoinaction/Resources v0.13.0/go.mod h1:4QxFKDTfHDA4Ylif1aM/ea5IFtOXGWKuAcD0czC/0I8=
 github.com/hugoinaction/Universal v0.0.0-20200812045818-69737f840531 h1:d/4uLyeX+aFRgKHniEctVlNxPipQzuvRIzUrjjcmrUI=
 github.com/hugoinaction/Universal v0.0.0-20200812045818-69737f840531/go.mod h1:tn5626W3c7g5nJ84Hsoe7/Oj1vT5D7xe9yyNhMe72X8=
