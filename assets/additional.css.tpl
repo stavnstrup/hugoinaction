@@ -61,11 +61,6 @@
   bottom: 30px;
 }
 
-
-.post.news {
-  border-color: black;
-}
-
 aside {
   align-self: flex-start;
   width: 210px;
