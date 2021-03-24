@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: hugoinaction/hugoinaction
-  branch: ch06-3
+  branch: ch06-4
 publish_mode: editorial_workflow
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
