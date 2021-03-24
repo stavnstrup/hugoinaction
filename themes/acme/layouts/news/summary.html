@@ -1,0 +1,4 @@
+<div class="post news">
+  <a href="{{.Permalink}}">{{default (.File.ContentBaseName | humanize | title) .Title}}</a>
+  <summary>{{.Summary}}</summary>
+</div>
