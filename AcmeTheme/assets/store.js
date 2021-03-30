@@ -2,9 +2,17 @@ import { matchTemplate } from "./util"
 
 let cart = [];
 let products = {};
+let stripe = undefined;
 
 export default {
   async init() {
+    const s = document.createElement('script');
+    s.setAttribute('src', "https://js.stripe.com/v3/");
+    s.onload = () => {
+      stripe = Stripe("pk_test_51HzWldGtPsFUGVMkhc6CpV68fwK7E4dzvI6m9Q2RsTA92TBB7AD0NDxnGdgG1jbP65eWz89KTMs8x2tE8mwuS7uN003Q3yiak0");
+    };
+    s.defer = true;
+    document.body.appendChild(s);
     document.addEventListener("click", this.handleClick.bind(this));
     await this.productInfo();
     window.addEventListener('storage', this.updateCart.bind(this));
@@ -15,6 +23,8 @@ export default {
     if (event.target.classList.contains("addToCart")) {
       event.preventDefault();
       this.addToCart(event.target.form);
+    } else if (event.target.id === "checkout") {
+      this.onCheckout();
     } else if (event.target.matches(".cart .delete")) {
       this.onDelete(event);
     }
@@ -33,8 +43,29 @@ export default {
 
   updateCart() {
     const disk = JSON.parse(window.localStorage.getItem("cart") || "[]");
-    cart= Array.isArray(disk) ? disk : [];
+    cart = Array.isArray(disk) ? disk : [];
     this.render();
+  },
+
+  async onCheckout(data = cart, retain = false) {
+    try {
+      const url = NETLIFY ? new URL(window.location.origin + "/.netlify/functions/checkout") : new URL("https://hugoinaction.herokuapp.com/checkout");
+      data.forEach(x => url.searchParams.append("products", `${x.name}_${x.color}`));
+
+      url.searchParams.append("success", encodeURIComponent(window.location.pathname + `?purchase=success&retain=${retain}`));
+
+      url.searchParams.append("cancel", encodeURIComponent(window.location.pathname + "?purchase=cancel"));
+
+      const response = await window.fetch(url.href);
+
+      if (response.ok) {
+        const resp = await response.json();
+        stripe.redirectToCheckout({ sessionId: resp.sessionId });
+      }
+
+    } catch (e) {
+      console.log("Error", e);
+    }
   },
 
   async productInfo() {
@@ -74,13 +105,16 @@ export default {
     }
 
     const info = cart.map(x => ({
-      ...x, price: parseFloat(products[x.name].Price.substr(1)),
+      ...x,
+      price: parseFloat(products[x.name].Price.substr(1)),
       cover: products[x.name].Cover
     }));
 
     if (info.length > 0 && template && itemList) {
-      itemList.innerHTML = info
-        .map(x => matchTemplate(template, Object.entries(x))).join("\n");
+      itemList.innerHTML = `
+            ${info.map(x => matchTemplate(template, Object.entries(x))).join("\n")}
+            <button id="checkout">Checkout</button>
+          `;
     }
   }
 }
