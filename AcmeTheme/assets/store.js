@@ -23,6 +23,10 @@ export default {
     if (event.target.classList.contains("addToCart")) {
       event.preventDefault();
       this.addToCart(event.target.form);
+    } else if (event.target.classList.contains("buyNow")) {
+      event.preventDefault();
+      const data = new FormData(event.target.form);
+      this.onCheckout([{ name: data.get("name"), color: data.get("color") }], true);
     } else if (event.target.id === "checkout") {
       this.onCheckout();
     } else if (event.target.matches(".cart .delete")) {
@@ -104,11 +108,7 @@ export default {
       document.querySelector(".cart")?.classList.add("visible");
     }
 
-    const info = cart.map(x => ({
-      ...x,
-      price: parseFloat(products[x.name].Price.substr(1)),
-      cover: products[x.name].Cover
-    }));
+    const info = cart.map(x => ({ ...x, price: parseFloat(products[x.name].Price.substr(1)), cover: products[x.name].Cover }));
 
     if (info.length > 0 && template && itemList) {
       itemList.innerHTML = `
@@ -116,5 +116,18 @@ export default {
             <button id="checkout">Checkout</button>
           `;
     }
+  },
+
+  async handleSuccess() {
+    const url = new URL(window.location.href);
+    if (url.searchParams.get("retain") === "false") {
+      cart.length = 0;
+      this.save();
+    }
+    (document.querySelector(".intro") || document.querySelector(".content")).insertAdjacentHTML("beforebegin", '<div class="alert"><div class="head">Order Confirmed.</div> You should receive an email within the next 10 hours with your digital purchase.<br> <small>In case of any issues please contact customer support.</small></div>');
+
+    url.searchParams.delete("purchase");
+    url.searchParams.delete("retain");
+    window.history.replaceState(null, "", url);
   }
 }
