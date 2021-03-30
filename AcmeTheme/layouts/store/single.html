@@ -1,8 +1,6 @@
 {{define "bodyClass"}}store{{end}}
 
 {{define "body"}}
-
-
 {{$product := (dict "colors" "" "rating" 0 "price" 0)}}
 {{if .Page.Params.product}}
   {{$product =index (partialCached "products.html" "nothing") .Page.Params.product}}
@@ -36,6 +34,11 @@
     </div>
     <div class="price"> Price: <span class="value">{{ $product.price }}</span></div>
     {{.Content}}
+    <div class="tags">
+      {{range $.Page.Params.Get "product-tags"}}
+        <a href="{{"/product-tags/" | relURL }}{{. | urlize}}">#{{.}}</a>
+      {{ end }}
+    </div>
     </div>
   </main>
 </section>
@@ -43,13 +46,13 @@
   <main>
     {{ $related := (where (site.RegularPages.Related . ) "Section" .Section) | first 3 }}
     {{with $related}}
-    <h2>Related Products</h2>
-    {{range .}}
-      {{.Render "summary"}}
-    {{end}}
+      <h2>Related Products</h2>
+      {{range .}}
+        {{.Render "summary"}}
+      {{end}}
     {{end}}
 
-    {{ partial "comment.html" (dict "FormspreeCommentForm" ($.Param "FormspreeCommentForm") "RelPermalink" .Page.RelPermalink "Disabled" ($.Param "CommentDisabled")) }}
+        {{ partial "comment.html" (dict "FormspreeCommentForm" ($.Param "FormspreeCommentForm") "RelPermalink" .Page.RelPermalink "Disabled" ($.Param "CommentDisabled")) }}
   </main>
 </section>
 {{end}}
