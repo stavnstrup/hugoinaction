@@ -1,5 +1,7 @@
 github.com/gohugoio/hugo-mod-jslibs/instantpage v0.5.1 h1:Aig+0MOPXiuQNZpnxOMS4uwUsnyq41JnQzGW4Gk3o7Y=
 github.com/gohugoio/hugo-mod-jslibs/instantpage v0.5.1/go.mod h1:N4EUbbL7Cw4Yq+GHeK3MUSiOJQbzfuUFRyvBKvnVBR8=
+github.com/gohugoio/hugo-mod-jslibs/turbolinks v0.6.0 h1:3jJ57v6Rr6BOQ0wYmlRt1ZE+kSP8vXnKNFMn8w1u6bA=
+github.com/gohugoio/hugo-mod-jslibs/turbolinks v0.6.0/go.mod h1:0COpoSU/YogktyDLZn4aoXioJPq+f4jvdenIZj5ozMQ=
 github.com/hugoinaction/AcmeShared v0.0.0-20210324051738-45b9f0ba186d h1:alQ7TcYJI5L9EXA2f2OmWC1ipGXgd2fix+B/qEjdR1U=
 github.com/hugoinaction/AcmeShared v0.0.0-20210324051738-45b9f0ba186d/go.mod h1:7LXrg0xlFB8KmoYVcQwu1U10U09nOvE5uh/jubh8390=
 github.com/hugoinaction/Resources v0.13.0 h1:kX8dz4A9W9OxTHPprCPKRq3Jv2567iAGKNol4UNz8kc=
@@ -10,3 +12,5 @@ github.com/hugoinaction/hugo-debug-utils v0.0.0-20200427035302-d4636e5c27cf h1:6
 github.com/hugoinaction/hugo-debug-utils v0.0.0-20200427035302-d4636e5c27cf/go.mod h1:YA0Taxzbbqz9oEvtMUW/uuPRE2v93r0WPMLkWaqiuBs=
 github.com/instantpage/instant.page v5.1.0+incompatible h1:/Z2XRXfY5HwuCN3TTqo56PaFyIlDr4l3tyytR/jGHXI=
 github.com/instantpage/instant.page v5.1.0+incompatible/go.mod h1:GXVDktwI+K4T9o5mcK2NYDqPFxAUrB9U9goR9oG1SaI=
+github.com/turbolinks/turbolinks-source-gem v5.2.0+incompatible h1:UNx8t3fYB51UyUv3gOXpTPT7Q6u9LCdcXQd2iW1EClA=
+github.com/turbolinks/turbolinks-source-gem v5.2.0+incompatible/go.mod h1:Cl0Br9tUXkQvxumVNGTvyaa7dqpFC2kPMrsS0Ttc94U=

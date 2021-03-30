@@ -6,6 +6,7 @@ import Store from "./store"
 function init() {
   FormHandler.init();
   Search.init();
+  document.addEventListener("turbolinks:load", router);
   router();
   if ('serviceWorker' in navigator && window.location.pathname !== '/offline') {
     navigator.serviceWorker.register('/serviceWorker.js',
@@ -16,15 +17,15 @@ function init() {
 function router() {
   const location = new URL(window.location.href);
   if (location.pathname.match(/\/store\/.*/)) {
-    Store.init();
+    if (!Store.initialized) {
+      Store.initialized = true;
+      Store.init();
+    }
+    Store.activate();
     if (location.searchParams.get("purchase") === "success") {
       Store.handleSuccess();
     }
   }
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
-} else {
 init();
-}

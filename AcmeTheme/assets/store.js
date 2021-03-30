@@ -16,6 +16,9 @@ export default {
     document.addEventListener("click", this.handleClick.bind(this));
     await this.productInfo();
     window.addEventListener('storage', this.updateCart.bind(this));
+  },
+
+  activate() {
     this.updateCart();
   },
 
@@ -47,11 +50,11 @@ export default {
 
   updateCart() {
     const disk = JSON.parse(window.localStorage.getItem("cart") || "[]");
-    cart = Array.isArray(disk) ? disk : [];
+    cart= Array.isArray(disk) ? disk : [];
     this.render();
   },
 
-  async onCheckout(data = cart, retain = false) {
+  async onCheckout(data =cart, retain = false) {
     try {
       const url = NETLIFY ? new URL(window.location.origin + "/.netlify/functions/checkout") : new URL("https://hugoinaction.herokuapp.com/checkout");
       data.forEach(x => url.searchParams.append("products", `${x.name}_${x.color}`));
@@ -60,7 +63,7 @@ export default {
 
       url.searchParams.append("cancel", encodeURIComponent(window.location.pathname + "?purchase=cancel"));
 
-      const response = await window.fetch(url.href);
+        const response = await window.fetch(url.href);
 
       if (response.ok) {
         const resp = await response.json();
